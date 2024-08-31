@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router'
     </button>
     <nav v-if="isOpen" class="menu">
       <ul>
-        <RouterLink to="/home" @click.native="toggleMenu">Home</RouterLink>
+        <RouterLink to="/" @click.native="toggleMenu">Home</RouterLink>
         <RouterLink to="/about" @click.native="toggleMenu">About</RouterLink>
         <RouterLink to="/contact" @click.native="toggleMenu">Contact</RouterLink>
       </ul>
