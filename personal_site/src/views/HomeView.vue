@@ -9,7 +9,7 @@
         JS</a>. Feel free
       to explore the About page to learn about me and reach out via the Contact page!</p>
     <div class="home-photo">
-      <img :src="climbingImage" alt="Climbing" width="500rem" height="667rem">
+      <img :src="climbingImage" alt="Climbing" width="300rem" height="400rem">
       <div class="caption-text">
         This is me at the summit of Seneca Rocks in West Virginia<br>
         (The page seemed a little empty with just the text up top)
