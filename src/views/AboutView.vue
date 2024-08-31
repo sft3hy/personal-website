@@ -38,21 +38,21 @@
       </p>
       <br>
       <div class="images-container">
-        <img :src="backpacking" alt="Backpacking the Camino de Santiago in Spain" width="500rem" height="667rem">
+        <img :src="backpacking" alt="Backpacking the Camino de Santiago in Spain" width="300rem" height="400rem">
         <p>Backpacking the Camino de Santiago in Spain</p><br>
-        <img :src="bean" alt="Me and a friend visiting the Chicago Bean" width="500rem" height="667rem">
+        <img :src="bean" alt="Me and a friend visiting the Chicago Bean" width="300rem" height="400rem">
         <p>Me and a friend visiting the Chicago Bean</p><br>
-        <img :src="Climbing1" alt="Climbing the Manchester Wall in Richmond, VA" width="500rem" height="667rem">
+        <img :src="Climbing1" alt="Climbing the Manchester Wall in Richmond, VA" width="300rem" height="400rem">
         <p>Climbing the Manchester Wall in Richmond, VA</p><br>
-        <img :src="friends" alt="Friends visiting the caverns in Luray, VA" width="500rem" height="667rem">
+        <img :src="friends" alt="Friends visiting the caverns in Luray, VA" width="300rem" height="400rem">
         <p>Friends visiting the caverns in Luray, VA</p><br>
-        <img :src="SenecaBase" alt="About to start the climb at Seneca Rocks, WV" width="500rem" height="667rem">
+        <img :src="SenecaBase" alt="About to start the climb at Seneca Rocks, WV" width="300rem" height="400rem">
         <p>About to start the climb at Seneca Rocks, WV</p><br>
-        <img :src="snorkel" alt="Snorkeling in Maui" width="500rem" height="667rem">
+        <img :src="snorkel" alt="Snorkeling in Maui" width="300rem" height="400rem">
         <p>Snorkeling in Maui</p><br>
-        <img :src="surfingMaui" alt="Surfing in Maui" width="500rem" height="667rem">
+        <img :src="surfingMaui" alt="Surfing in Maui" width="300rem" height="400rem">
         <p>Surfing in Maui</p><br>
-        <img :src="surfingOBX" alt="Surfing in the Outer Banks, NC" width="500rem" height="334rem">
+        <img :src="surfingOBX" alt="Surfing in the Outer Banks, NC" width="300rem" height="160rem">
         <p>Surfing in the Outer Banks, NC</p><br>
       </div>
     </div>

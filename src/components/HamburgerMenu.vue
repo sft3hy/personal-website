@@ -55,8 +55,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -76,6 +76,7 @@ export default {
   flex-direction: column;
   margin-right: 1rem;
   /* Ensures the menu items are in a column */
+  margin-top: 2rem;
 }
 
 .menu ul {
