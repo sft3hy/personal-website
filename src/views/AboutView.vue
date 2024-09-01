@@ -1,11 +1,19 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+
+</script>
+
 <template>
   <div class="about">
     <div class="topic-container">
 
       <h1>Professional Stuff:</h1>
       <p class="about-text">
-        I grew up in Virginia Beach, VA and went to <a href="https://www.capehenrycollegiate.org/">Cape Henry</a> for
-        high school. I applied to a few colleges and chose <a href="https://www.virginia.edu/">UVA</a>
+        I grew up in Virginia Beach, VA and went to <a href="https://www.capehenrycollegiate.org/" target="_blank"
+          rel="noopener">Cape
+          Henry</a> for
+        high school. I applied to a few colleges and chose <a href="https://www.virginia.edu/" target="_blank"
+          rel="noopener">UVA</a>
         for my secondary education. My first year at UVA, I didn’t know what I wanted to focus on for my degree, so I
         took
         a wide variety of classes (drama, computer science, music, environmental science, physics, the list goes on).
@@ -13,7 +21,9 @@
         the years, I ended going for one fun major (music) and one get-a-job major (computer science). In May of 2022, I
         graduated UVA with 2 Bachelor of Arts degrees and then moved to northern Virginia. I worked for 2 years full
         time
-        in person as a systems engineer for <a href=“https://www.arcfield.com/”>Arcfield</a>, but did a lot of software
+        in person as a systems engineer for <a href="https://www.arcfield.com/" target="_blank"
+          rel="noopener">Arcfield</a>, but did a
+        lot of software
         engineering during my time. I sharpened my Python skills, as well as picking up some front end development tools
         (JavaScript, HTML, and CSS) and back end database management with SQL. I also learned the foundations of
         software
@@ -39,20 +49,20 @@
       <br>
       <div class="images-container">
         <img :src="backpacking" alt="Backpacking the Camino de Santiago in Spain" width="300rem" height="400rem">
-        <p>Backpacking the Camino de Santiago in Spain</p><br>
+        <p>Backpacking Camino de Santiago in Spain</p><br>
         <img :src="bean" alt="Me and a friend visiting the Chicago Bean" width="300rem" height="400rem">
         <p>Me and a friend visiting the Chicago Bean</p><br>
         <img :src="Climbing1" alt="Climbing the Manchester Wall in Richmond, VA" width="300rem" height="400rem">
-        <p>Climbing the Manchester Wall in Richmond, VA</p><br>
+        <p>Climbing Manchester Wall in Richmond, VA</p><br>
         <img :src="friends" alt="Friends visiting the caverns in Luray, VA" width="300rem" height="400rem">
         <p>Friends visiting the caverns in Luray, VA</p><br>
         <img :src="SenecaBase" alt="About to start the climb at Seneca Rocks, WV" width="300rem" height="400rem">
-        <p>About to start the climb at Seneca Rocks, WV</p><br>
+        <p>About to climb at Seneca Rocks, WV</p><br>
         <img :src="snorkel" alt="Snorkeling in Maui" width="300rem" height="400rem">
         <p>Snorkeling in Maui</p><br>
         <img :src="surfingMaui" alt="Surfing in Maui" width="300rem" height="400rem">
         <p>Surfing in Maui</p><br>
-        <img :src="surfingOBX" alt="Surfing in the Outer Banks, NC" width="300rem" height="160rem">
+        <img :src="surfingOBX" alt="Surfing in the Outer Banks, NC" width="300rem" height="200rem">
         <p>Surfing in the Outer Banks, NC</p><br>
       </div>
     </div>

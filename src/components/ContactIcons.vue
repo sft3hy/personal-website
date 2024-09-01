@@ -17,21 +17,22 @@ import GitHub from './icons/GitHub.vue'
         <template #icon>
           <Gmail />
         </template>
-        <template #heading><a href="mailto:smaueltown@gmail.com" target="_blank">Email</a>
+        <template #heading><a href="mailto:smaueltown@gmail.com" target="_blank" rel="noopener">Email</a>
         </template>
       </WelcomeItem>
       <WelcomeItem>
         <template #icon>
           <LinkedIn />
         </template>
-        <template #heading><a href="https://linkedin.com/in/samuel-townsend1" target="_blank">LinkedIn</a>
+        <template #heading><a href="https://linkedin.com/in/samuel-townsend1" target="_blank"
+            rel="noopener">LinkedIn</a>
         </template>
       </WelcomeItem>
       <WelcomeItem>
         <template #icon>
           <GitHub />
         </template>
-        <template #heading><a href="https://github.com/sft3hy" target="_blank">Github</a>
+        <template #heading><a href="https://github.com/sft3hy" target="_blank" rel="noopener">Github</a>
         </template>
       </WelcomeItem>
 
@@ -39,7 +40,8 @@ import GitHub from './icons/GitHub.vue'
         <template #icon>
           <Instagram />
         </template>
-        <template #heading><a href="https://www.instagram.com/sam_townsend_" target="_blank">Instagram</a>
+        <template #heading><a href="https://www.instagram.com/sam_townsend_" target="_blank"
+            rel="noopener">Instagram</a>
         </template>
       </WelcomeItem>
     </div>

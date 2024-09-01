@@ -5,14 +5,19 @@
   <main>
     <!-- <TheWelcome /> -->
     <h1 class="howdy-header">Howdy!</h1>
-    <p class="home-text">Glad you could make it. Welcome to my website that I built with <a href=“https://vuejs.org”>Vue
+    <p class="home-text">Glad you could make it. Welcome to my website that I built with <a href="https://vuejs.org"
+        target="_blank" rel="noopener">Vue
         JS</a>. Feel free
-      to explore the About page to learn about me and reach out via the Contact page!</p>
+      to explore the <RouterLink to="/about" @click.native="toggleMenu">About</RouterLink>
+      page to learn about me and reach out via the <RouterLink to="/contact" @click.native="toggleMenu">Contact
+      </RouterLink>
+      page!</p>
+    <br>
     <div class="home-photo">
       <img :src="climbingImage" alt="Climbing" width="300rem" height="400rem">
       <div class="caption-text">
-        This is me at the summit of Seneca Rocks in West Virginia<br>
-        (The page seemed a little empty with just the text up top)
+        Pictured: me at the summit of Seneca Rocks in West Virginia<br>
+        (Page seemed a little empty with just the text up top)
       </div>
     </div>
 
@@ -47,6 +52,6 @@ export default {
 }
 
 .caption-text {
-  font-size: 15px;
+  font-size: 10px;
 }
 </style>

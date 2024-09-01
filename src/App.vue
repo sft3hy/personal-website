@@ -6,7 +6,9 @@ import HamburgerMenu from './components/HamburgerMenu.vue';
 <template>
 
   <div id="app">
-    <HamburgerMenu />
+    <div class="top-bar">
+      <HamburgerMenu />
+    </div>
     <!-- Other content -->
   </div>
 
@@ -21,6 +23,19 @@ import HamburgerMenu from './components/HamburgerMenu.vue';
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+
+.top-bar {
+  width: 100%;
+  height: 4.2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgb(227 249 241);
+  ;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
