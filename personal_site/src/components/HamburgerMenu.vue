@@ -1,20 +1,22 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import Hamburger from './icons/Hamburger.vue'
 </script>
 <template>
   <div>
     <button @click="toggleMenu" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <Hamburger />
     </button>
-    <nav v-if="isOpen" class="menu">
-      <ul>
-        <RouterLink to="/" @click.native="toggleMenu">Home</RouterLink>
-        <RouterLink to="/about" @click.native="toggleMenu">About</RouterLink>
-        <RouterLink to="/contact" @click.native="toggleMenu">Contact</RouterLink>
-      </ul>
-    </nav>
+    <transition name="fade">
+
+      <nav v-if="isOpen" class="menu">
+        <ul>
+          <RouterLink to="/" @click.native="toggleMenu">Home</RouterLink>
+          <RouterLink to="/about" @click.native="toggleMenu">About</RouterLink>
+          <RouterLink to="/contact" @click.native="toggleMenu">Contact</RouterLink>
+        </ul>
+      </nav>
+    </transition>
   </div>
 </template>
 
@@ -46,11 +48,11 @@ export default {
 
 <style>
 .hamburger {
-  position: fixed;
-  /* Ensures the hamburger stays at the top right */
-  top: 30px;
+  position: absolute;
+  /* Change to absolute to position it within the .top-bar */
+  top: 10px;
   /* Adjust as needed */
-  right: 30px;
+  right: 10px;
   /* Adjust as needed */
   display: flex;
   flex-direction: column;
@@ -76,15 +78,32 @@ export default {
   flex-direction: column;
   margin-right: 1rem;
   /* Ensures the menu items are in a column */
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease, display 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active in <2.1.8 */
+  {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
 
 .menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 1px solid rgb(116, 213, 134);
-  border-radius: 0.2rem;
+  /* border: 1px solid rgb(116, 213, 134); */
   font-size: 20px;
 }
 
@@ -95,6 +114,9 @@ export default {
 .menu a {
   text-decoration: none;
   color: black;
+  border: 1px solid rgb(116, 213, 134);
+  border-radius: 0.2rem;
+
 }
 
 
@@ -108,6 +130,7 @@ nav {
 
 nav a.router-link-exact-active {
   color: rgb(110, 179, 122);
+  font-weight: bold;
 }
 
 nav a.router-link-exact-active:hover {
@@ -121,13 +144,8 @@ nav a {
   /* Adjust padding as needed */
   /* Ensures the links are full width */
   text-align: center;
-  /* Centers the text within the links */
-  border: 1px solid rgb(116, 213, 134);
 }
 
-nav a:first-of-type {
-  border: 0;
-}
 
 @media (min-width: 1024px) {
   header {
