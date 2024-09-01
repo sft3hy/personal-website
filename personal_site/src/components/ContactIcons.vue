@@ -18,6 +18,7 @@ import GitHub from './icons/GitHub.vue'
           <Gmail />
         </template>
         <template #heading><a href="mailto:smaueltown@gmail.com" target="_blank" rel="noopener">Email</a>
+          <p>smaueltown@gmail.com</p>
         </template>
       </WelcomeItem>
       <WelcomeItem>
@@ -53,6 +54,7 @@ import GitHub from './icons/GitHub.vue'
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: hidden;
 }
 
 .contact-title {
