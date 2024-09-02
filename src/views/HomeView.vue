@@ -28,6 +28,11 @@
 import climbingImage from '@/assets/home_picture/Climbing.jpg';
 
 export default {
+  metaInfo: {
+    title: 'Sam Townsend - Home',
+    meta: [
+      { name: 'description', content: "Landing page for Sam Townsend's website. Links to About and Contact info." }]
+  },
   data() {
     return {
       climbingImage
