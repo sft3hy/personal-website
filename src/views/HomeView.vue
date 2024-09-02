@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -28,10 +28,27 @@ import { RouterLink } from 'vue-router'
 import climbingImage from '@/assets/home_picture/Climbing.jpg';
 
 export default {
-  metaInfo: {
-    title: 'Sam Townsend - Home',
-    meta: [
-      { name: 'description', content: "Landing page for Sam Townsend's website. Links to About and Contact info." }]
+  methods: {
+    addMetaTags() {
+      const existingTitle = document.querySelectorAll('title');
+      existingTitle.forEach(tag => tag.remove());
+      document.title = 'Sam Townsend - Home';
+
+      const existingMetaTags = document.querySelectorAll('meta[name="description"]', 'meta[property="og:title"]');
+      existingMetaTags.forEach(tag => tag.remove());
+      const metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      metaDescription.content = "Landing page for Sam Townsend's website. Links to About and Contact info.";
+      document.head.appendChild(metaDescription);
+
+      const metaOgTitle = document.createElement('meta');
+      metaOgTitle.setAttribute('property', 'og:title');
+      metaOgTitle.content = 'Sam Townsend - Home';
+      document.head.appendChild(metaOgTitle);
+    },
+  },
+  mounted() {
+    this.addMetaTags();
   },
   data() {
     return {

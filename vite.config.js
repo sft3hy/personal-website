@@ -15,11 +15,6 @@ export default defineConfig(({ command }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
     },
-    build: {
-      rollupOptions: {
-        external: command === 'build' ? ['@vue/server-renderer'] : [],
-      }
-    }
   }
 });
 

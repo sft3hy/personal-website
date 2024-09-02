@@ -1,4 +1,12 @@
 <script setup>
+import backpacking from '@/assets/about_pictures/backpackingCamino.jpg';
+import bean from '@/assets/about_pictures/ChicagoBean.jpg';
+import Climbing1 from '@/assets/about_pictures/climbing1.jpg';
+import friends from '@/assets/about_pictures/friends.jpg';
+import SenecaBase from '@/assets/about_pictures/SenecaBase.jpg';
+import snorkel from '@/assets/about_pictures/snorkelMaui.jpg';
+import surfingMaui from '@/assets/about_pictures/surfingMaui.jpg';
+import surfingOBX from '@/assets/about_pictures/surfingOBX.jpg';
 </script>
 
 <template>
@@ -67,27 +75,32 @@
   </div>
 </template>
 <script>
-import backpacking from '@/assets/about_pictures/backpackingCamino.jpg';
-import bean from '@/assets/about_pictures/ChicagoBean.jpg';
-import Climbing1 from '@/assets/about_pictures/climbing1.jpg';
-import friends from '@/assets/about_pictures/friends.jpg';
-import SenecaBase from '@/assets/about_pictures/SenecaBase.jpg';
-import snorkel from '@/assets/about_pictures/snorkelMaui.jpg';
-import surfingMaui from '@/assets/about_pictures/surfingMaui.jpg';
-import surfingOBX from '@/assets/about_pictures/surfingOBX.jpg';
-
 export default {
-  metaInfo: {
-    title: 'Sam Townsend - About',
-    meta: [
-      { name: 'description', content: "Biological information about Sam Townsend or Samuel Townsend. He is a software engineer working part time for Arcfield and getting his Master's in Data Science at UC Irvine. Pictures of his travelling and surfing." }
-    ]
+  methods: {
+    addMetaTags() {
+      const existingTitle = document.querySelectorAll('title');
+      existingTitle.forEach(tag => tag.remove());
+      document.title = 'Sam Townsend - About';
+
+      const existingMetaTags = document.querySelectorAll('meta[name="description"]', 'meta[property="og:title"]');
+      existingMetaTags.forEach(tag => tag.remove());
+      const metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      metaDescription.content = "Biographical information about Sam Townsend or Samuel Townsend. He is a software engineer working part time for Arcfield and getting his Master's in Data Science at UC Irvine. Pictures of his travelling and surfing.";
+      document.head.appendChild(metaDescription);
+
+      const metaOgTitle = document.createElement('meta');
+      metaOgTitle.setAttribute('property', 'og:title');
+      metaOgTitle.content = 'Sam Townsend - About';
+      document.head.appendChild(metaOgTitle);
+      return {
+        backpacking, bean, Climbing1, friends, SenecaBase, snorkel, surfingMaui, surfingOBX
+      };
+    },
   },
-  data() {
-    return {
-      backpacking, bean, Climbing1, friends, SenecaBase, snorkel, surfingMaui, surfingOBX
-    };
-  }
+  mounted() {
+    this.addMetaTags();
+  },
 };
 </script>
 
