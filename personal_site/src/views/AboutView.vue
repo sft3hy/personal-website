@@ -1,12 +1,9 @@
 <script setup>
-import { RouterLink } from 'vue-router'
-
 </script>
 
 <template>
   <div class="about">
     <div class="topic-container">
-
       <h1>Professional Stuff:</h1>
       <p class="about-text">
         I grew up in Virginia Beach, VA and went to <a href="https://www.capehenrycollegiate.org/" target="_blank"

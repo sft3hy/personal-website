@@ -8,6 +8,6 @@ import router from './router'
 const app = createApp(App)
 const metaManager = createMetaManager();
 
-app.use(router)
+app.use(router);
 app.use(metaManager);
 app.mount('#app');
