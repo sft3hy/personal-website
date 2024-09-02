@@ -4,7 +4,6 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <main>
-    <!-- <TheWelcome /> -->
     <h1 class="howdy-header">Howdy!</h1>
     <p class="home-text">Glad you could make it. Welcome to my website that I built with <a href="https://vuejs.org"
         target="_blank" rel="noopener">Vue
