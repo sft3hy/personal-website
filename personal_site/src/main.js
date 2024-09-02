@@ -5,7 +5,8 @@ import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
+const metaManager = createMetaManager();
 
 app.use(router)
-
-app.mount('#app')
+app.use(metaManager);
+app.mount('#app');
