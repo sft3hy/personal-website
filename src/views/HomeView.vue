@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -8,8 +9,8 @@
     <p class="home-text">Glad you could make it. Welcome to my website that I built with <a href="https://vuejs.org"
         target="_blank" rel="noopener">Vue
         JS</a>. Feel free
-      to explore the <RouterLink to="/about" @click.native="toggleMenu">About</RouterLink>
-      page to learn about me and reach out via the <RouterLink to="/contact" @click.native="toggleMenu">Contact
+      to explore the <RouterLink to="/about">About</RouterLink>
+      page to learn about me and reach out via the <RouterLink to="/contact">Contact
       </RouterLink>
       page!</p>
     <br>

@@ -11,9 +11,9 @@ import Hamburger from './icons/Hamburger.vue'
 
       <nav v-if="isOpen" class="menu">
         <ul>
-          <RouterLink to="/" @click.native="toggleMenu">Home</RouterLink>
-          <RouterLink to="/about" @click.native="toggleMenu">About</RouterLink>
-          <RouterLink to="/contact" @click.native="toggleMenu">Contact</RouterLink>
+          <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
+          <RouterLink to="/about" @click="toggleMenu">About</RouterLink>
+          <RouterLink to="/contact" @click="toggleMenu">Contact</RouterLink>
         </ul>
       </nav>
     </transition>
