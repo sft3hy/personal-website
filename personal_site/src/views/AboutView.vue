@@ -83,7 +83,7 @@ export default {
   metaInfo: {
     title: 'Sam Townsend - About',
     meta: [
-      { name: 'description', content: "Information about Sam Townsend or Samuel Townsend. He is a software engineer working part time for Arcfield and getting his Master's in Data Science at UC Irvine. Pictures of his travelling and surfing." }
+      { name: 'description', content: "Biological information about Sam Townsend or Samuel Townsend. He is a software engineer working part time for Arcfield and getting his Master's in Data Science at UC Irvine. Pictures of his travelling and surfing." }
     ]
   },
   data() {
