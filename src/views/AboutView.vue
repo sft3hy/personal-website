@@ -7,6 +7,8 @@ import SenecaBase from '@/assets/about_pictures/SenecaBase.jpg';
 import snorkel from '@/assets/about_pictures/snorkelMaui.jpg';
 import surfingMaui from '@/assets/about_pictures/surfingMaui.jpg';
 import surfingOBX from '@/assets/about_pictures/surfingOBX.jpg';
+import { createTag, removeTags } from '@/utils/common';
+
 </script>
 
 <template>
@@ -47,9 +49,8 @@ import surfingOBX from '@/assets/about_pictures/surfingOBX.jpg';
         anything.
         I’m currently living in Irvine, California, which is pretty conducive to the way I like to live my life with
         respect to the surfing and outdoorsy parts. Since my girlfriend lives in San Diego and attends USD law school, I
-        spend a good amount of time down there as well. So far I’ve surfed at Scripps Pier, Encinitas, and Trestles
-        Beach,
-        which have all had awesome waves.
+        spend a good amount of time down there as well. So far I’ve surfed at Scripps Pier, Encinitas, Windansea, and
+        Trestles Beach, which have all had awesome waves.
       </p>
       <br>
       <div class="images-container">
@@ -77,29 +78,14 @@ import surfingOBX from '@/assets/about_pictures/surfingOBX.jpg';
 <script>
 export default {
   methods: {
-    addMetaTags() {
-      const existingTitle = document.querySelectorAll('title');
-      existingTitle.forEach(tag => tag.remove());
-      document.title = 'Sam Townsend - About';
-
-      const existingMetaTags = document.querySelectorAll('meta[name="description"]', 'meta[property="og:title"]');
-      existingMetaTags.forEach(tag => tag.remove());
-      const metaDescription = document.createElement('meta');
-      metaDescription.name = 'description';
-      metaDescription.content = "Biographical information about Sam Townsend or Samuel Townsend. He is a software engineer working part time for Arcfield and getting his Master's in Data Science at UC Irvine. Pictures of his travelling and surfing.";
-      document.head.appendChild(metaDescription);
-
-      const metaOgTitle = document.createElement('meta');
-      metaOgTitle.setAttribute('property', 'og:title');
-      metaOgTitle.content = 'Sam Townsend - About';
-      document.head.appendChild(metaOgTitle);
+    returnImages() {
       return {
         backpacking, bean, Climbing1, friends, SenecaBase, snorkel, surfingMaui, surfingOBX
       };
     },
   },
   mounted() {
-    this.addMetaTags();
+    this.returnImages();
   },
 };
 </script>
