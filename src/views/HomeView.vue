@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { createTag, removeTags } from '@/utils/common';
 
 </script>
 

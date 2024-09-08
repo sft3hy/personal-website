@@ -7,7 +7,8 @@ import SenecaBase from '@/assets/about_pictures/SenecaBase.jpg';
 import snorkel from '@/assets/about_pictures/snorkelMaui.jpg';
 import surfingMaui from '@/assets/about_pictures/surfingMaui.jpg';
 import surfingOBX from '@/assets/about_pictures/surfingOBX.jpg';
-import { createTag, removeTags } from '@/utils/common';
+import { Carousel, Slide, Navigation } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css';
 
 </script>
 
@@ -52,24 +53,18 @@ import { createTag, removeTags } from '@/utils/common';
         spend a good amount of time down there as well. So far I’ve surfed at Scripps Pier, Encinitas, Windansea, and
         Trestles Beach, which have all had awesome waves.
       </p>
-      <br>
-      <div class="images-container">
-        <img :src="backpacking" alt="Backpacking the Camino de Santiago in Spain" width="300rem" height="400rem">
-        <p>Backpacking Camino de Santiago in Spain</p><br>
-        <img :src="bean" alt="Me and a friend visiting the Chicago Bean" width="300rem" height="400rem">
-        <p>Me and a friend visiting the Chicago Bean</p><br>
-        <img :src="Climbing1" alt="Climbing the Manchester Wall in Richmond, VA" width="300rem" height="400rem">
-        <p>Climbing Manchester Wall in Richmond, VA</p><br>
-        <img :src="friends" alt="Friends visiting the caverns in Luray, VA" width="300rem" height="400rem">
-        <p>Friends visiting the caverns in Luray, VA</p><br>
-        <img :src="SenecaBase" alt="About to start the climb at Seneca Rocks, WV" width="300rem" height="400rem">
-        <p>About to climb at Seneca Rocks, WV</p><br>
-        <img :src="snorkel" alt="Snorkeling in Maui" width="300rem" height="400rem">
-        <p>Snorkeling in Maui</p><br>
-        <img :src="surfingMaui" alt="Surfing in Maui" width="300rem" height="400rem">
-        <p>Surfing in Maui</p><br>
-        <img :src="surfingOBX" alt="Surfing in the Outer Banks, NC" width="300rem" height="200rem">
-        <p>Surfing in the Outer Banks, NC</p><br>
+      <div class="carousel-container">
+        <Carousel :items-to-show="1" :items-to-scroll="1" navigationEnabled>
+          <template #addons>
+            <Navigation />
+          </template>
+          <Slide v-for="(image, index) in images" :key="index">
+            <div class="slide-content">
+              <img :src="image.src" :alt="image.alt" width="300rem">
+              <p>{{ image.caption }}</p>
+            </div>
+          </Slide>
+        </Carousel>
       </div>
     </div>
 
@@ -77,16 +72,25 @@ import { createTag, removeTags } from '@/utils/common';
 </template>
 <script>
 export default {
-  methods: {
-    returnImages() {
-      return {
-        backpacking, bean, Climbing1, friends, SenecaBase, snorkel, surfingMaui, surfingOBX
-      };
-    },
+  components: {
+    Carousel,
+    Slide,
+    Navigation,
   },
-  mounted() {
-    this.returnImages();
-  },
+  data() {
+    return {
+      images: [
+        { src: backpacking, alt: 'Backpacking the Camino de Santiago in Spain', caption: 'Backpacking Camino de Santiago in Spain' },
+        { src: bean, alt: 'Me and a friend visiting the Chicago Bean', caption: 'Me and a friend visiting the Chicago Bean' },
+        { src: Climbing1, alt: 'Climbing the Manchester Wall in Richmond, VA', caption: 'Climbing Manchester Wall in Richmond, VA' },
+        { src: friends, alt: 'Friends visiting the caverns in Luray, VA', caption: 'Friends visiting the caverns in Luray, VA' },
+        { src: SenecaBase, alt: 'About to start the climb at Seneca Rocks, WV', caption: 'About to climb at Seneca Rocks, WV' },
+        { src: snorkel, alt: 'Snorkeling in Maui', caption: 'Snorkeling in Maui' },
+        { src: surfingMaui, alt: 'Surfing in Maui', caption: 'Surfing in Maui' },
+        { src: surfingOBX, alt: 'Surfing in the Outer Banks, NC', caption: 'Surfing in the Outer Banks, NC', height: "200rem" }
+      ]
+    };
+  }
 };
 </script>
 
@@ -95,15 +99,79 @@ export default {
   min-height: 100vh;
 }
 
-.images-container {
+.carousel-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.carousel__prev,
+.carousel__next {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f3f7fc;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel__prev:hover,
+.carousel__next:hover {
+  color: #384355;
+  /* Change this to your desired color */
+  background-color: #f3f7fc;
+  /* Example for background color */
+  /* Example for border color */
+}
+
+.carousel__prev {
+  left: 3rem;
+
+}
+
+.carousel__next {
+  right: 3rem;
+
+}
+
+
+@media (max-width: 600px) {
+
+  .carousel__prev {
+    left: -30px;
+    width: 2rem;
+    height: 2rem;
+
+  }
+
+  .carousel__next {
+    right: -30px;
+    width: 2rem;
+    height: 2rem;
+
+  }
+}
+
+*/ .slide-content {
   text-align: center;
-  overflow-x: hidden;
 }
 
-.images-container p {
-  margin-top: -8px;
+.slide-content img {
+  display: block;
+  margin: auto;
 }
 
+.slide-content p {
+  margin-top: 10px;
+}
 
 @media (max-width: 500px) {
   .topic-container {

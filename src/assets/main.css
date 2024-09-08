@@ -10,13 +10,13 @@
 a,
 .green {
   text-decoration: none;
-  color: rgb(110, 183, 159);
+  color: #8fa9f7;
   transition: 0.4s;
   padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: hsla(217, 100%, 76%, 0.204);
   }
 }

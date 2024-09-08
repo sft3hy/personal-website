@@ -32,10 +32,10 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: rgb(227 249 241);
-  ;
+  background-color: #f3f7fc;
+
   padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(255, 249, 249, 0.1);
 }
 
 .logo {

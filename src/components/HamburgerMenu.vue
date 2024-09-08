@@ -73,12 +73,14 @@ export default {
 .menu {
   position: fixed;
   right: 0;
-  background: white;
+  background: #f3f7fc;
   display: flex;
   flex-direction: column;
   margin-right: 1rem;
   /* Ensures the menu items are in a column */
   margin-top: 4rem;
+  border-radius: 0.2rem;
+
 }
 
 .fade-enter-active,
@@ -114,7 +116,7 @@ export default {
 .menu a {
   text-decoration: none;
   color: black;
-  border: 1px solid rgb(116, 213, 134);
+  border: 1px solid #384355;
   border-radius: 0.2rem;
 
 }
@@ -129,7 +131,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: rgb(110, 179, 122);
+  color: #8fa9f7;
   font-weight: bold;
 }
 
