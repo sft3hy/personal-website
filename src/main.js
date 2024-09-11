@@ -3,9 +3,12 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { removeTags, createTag } from '@/utils/common';
+import { createHead } from '@vueuse/head';
+
 
 
 const app = createApp(App);
+const head = createHead();
 
 router.beforeEach((to, from, next) => {
     removeTags();
@@ -26,8 +29,14 @@ router.beforeEach((to, from, next) => {
     createTag('meta', 'name', 'description', description);
     document.title = to.meta.title || 'Default Title';
 
+    const canon = document.createElement('link');
+    canon.setAttribute('rel', 'canonical');
+    canon.setAttribute('href', to.meta.canonical);
+    document.head.insertBefore(canon, document.head.firstChild);
 
     next();
 });
 
-app.use(router).mount('#app');
+app.use(head);
+app.use(router);
+app.mount('#app');

@@ -37,9 +37,4 @@ header {
   padding: 10px;
   box-shadow: 0 2px 5px rgba(255, 249, 249, 0.1);
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 </style>

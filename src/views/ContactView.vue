@@ -1,6 +1,5 @@
 <script setup>
-import ContactInfo from '../components/ContactIcons.vue'
-
+import ContactInfo from '../components/ContactIcons.vue';
 </script>
 
 <template>

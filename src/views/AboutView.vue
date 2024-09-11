@@ -1,18 +1,15 @@
 <script setup>
-import backpacking from '@/assets/about_pictures/backpackingCamino.jpg';
-import bean from '@/assets/about_pictures/ChicagoBean.jpg';
-import Climbing1 from '@/assets/about_pictures/climbing1.jpg';
-import friends from '@/assets/about_pictures/friends.jpg';
-import SenecaBase from '@/assets/about_pictures/SenecaBase.jpg';
-import snorkel from '@/assets/about_pictures/snorkelMaui.jpg';
-import surfingMaui from '@/assets/about_pictures/surfingMaui.jpg';
-import surfingOBX from '@/assets/about_pictures/surfingOBX.jpg';
-import { Carousel, Slide, Navigation } from 'vue3-carousel';
-import 'vue3-carousel/dist/carousel.css';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 
+import 'vue3-carousel/dist/carousel.css';
+import 'swiper/swiper-bundle.css';
+
+import { Carousel, Slide, Navigation as CarouselNavigation, Pagination as CarouselPagination } from 'vue3-carousel';
 </script>
 
 <template>
+  <link rel="preload" as="image" href="/sam-townsend/images/about_pictures/backpackingCamino.jpeg" />
+
   <div class="about">
     <div class="topic-container">
       <h1>Professional Stuff:</h1>
@@ -26,7 +23,8 @@ import 'vue3-carousel/dist/carousel.css';
         took
         a wide variety of classes (drama, computer science, music, environmental science, physics, the list goes on).
         Over
-        the years, I ended going for one fun major (music) and one get-a-job major (computer science). In May of 2022, I
+        the years, I ended going for one fun major (music) and one "get-a-job" major (computer science). In May of 2022,
+        I
         graduated UVA with 2 Bachelor of Arts degrees and then moved to northern Virginia. I worked for 2 years full
         time
         in person as a systems engineer for <a href="https://www.arcfield.com/" target="_blank"
@@ -53,48 +51,146 @@ import 'vue3-carousel/dist/carousel.css';
         spend a good amount of time down there as well. So far I’ve surfed at Scripps Pier, Encinitas, Windansea, and
         Trestles Beach, which have all had awesome waves.
       </p>
-      <div class="carousel-container">
-        <Carousel :items-to-show="1" :items-to-scroll="1" navigationEnabled>
-          <template #addons>
-            <Navigation />
-          </template>
-          <Slide v-for="(image, index) in images" :key="index">
-            <div class="slide-content">
-              <img :src="image.src" :alt="image.alt" width="300rem">
-              <p>{{ image.caption }}</p>
-            </div>
-          </Slide>
-        </Carousel>
-      </div>
-    </div>
 
+    </div>
+    <div>
+      <Carousel ref="carousel" v-if="isDesktop" :items-to-show="1" :items-to-scroll="1" navigationEnabled
+        @slide="updateCurrentIndex">
+        <template #addons>
+          <CarouselNavigation />
+          <CarouselPagination />
+        </template>
+        <Slide v-for="(image, index) in images" :key="index">
+          <div class="slide-content">
+            <img :src="image.src" :alt="image.alt" width="300rem">
+            <p>{{ image.caption }}</p>
+          </div>
+        </Slide>
+      </Carousel>
+
+      <swiper v-else ref="swiper" :modules="modules" :slides-per-view="1" :space-between="5" navigation
+        :pagination="{ clickable: true }" @slideChange="onSlideChange">
+        <swiper-slide v-for="(image, index) in images" :key="index">
+          <div class="slide-content">
+            <img :src="image.src" :alt="image.alt" width="280rem">
+            <p>{{ image.caption }}</p>
+          </div>
+        </swiper-slide>
+      </swiper>
+
+    </div>
   </div>
+
 </template>
+
 <script>
+import { Navigation as SwiperNavigation, Pagination, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 export default {
   components: {
     Carousel,
     Slide,
-    Navigation,
+    CarouselNavigation,
+    CarouselPagination,
+    Swiper,
+    SwiperSlide,
   },
   data() {
+    const images = ref([
+      {
+        src: "/sam-townsend/images/about_pictures/backpackingCamino.jpeg", alt: 'Backpacking the Camino de Santiago in Spain',
+        caption: 'Backpacking Camino de Santiago in Spain'
+      },
+      {
+        src: "/sam-townsend/images/about_pictures/ChicagoBean.jpeg", alt: 'Me and a friend visiting the Chicago Bean',
+        caption: 'Me and a friend visiting the Chicago Bean'
+      },
+      {
+        src: "/sam-townsend/images/about_pictures/Climbing1.jpeg", alt: 'Climbing the Manchester Wall in Richmond, VA',
+        caption: 'Climbing Manchester Wall in Richmond, VA'
+      },
+      {
+        src: "/sam-townsend/images/about_pictures/friends.jpeg", alt: 'Friends visiting the caverns in Luray, VA', caption:
+          'Friends visiting the caverns in Luray, VA'
+      },
+      {
+        src: "/sam-townsend/images/about_pictures/SenecaBase.jpeg", alt: 'About to start the climb at Seneca Rocks, WV',
+        caption: 'About to climb at Seneca Rocks, WV'
+      },
+      {
+        src: "/sam-townsend/images/about_pictures/snorkelMaui.jpeg", alt: 'Snorkeling in Maui', caption: 'Snorkeling in Maui'
+      },
+      { src: "/sam-townsend/images/about_pictures/surfingMaui.jpeg", alt: 'Surfing in Maui', caption: 'Surfing in Maui' },
+      { src: "/sam-townsend/images/about_pictures/surfingOBX.jpeg", alt: 'Surfing in the Outer Banks, NC', caption: 'Surfing in the Outer Banks, NC', height: "200rem" }
+    ]);
+
     return {
-      images: [
-        { src: backpacking, alt: 'Backpacking the Camino de Santiago in Spain', caption: 'Backpacking Camino de Santiago in Spain' },
-        { src: bean, alt: 'Me and a friend visiting the Chicago Bean', caption: 'Me and a friend visiting the Chicago Bean' },
-        { src: Climbing1, alt: 'Climbing the Manchester Wall in Richmond, VA', caption: 'Climbing Manchester Wall in Richmond, VA' },
-        { src: friends, alt: 'Friends visiting the caverns in Luray, VA', caption: 'Friends visiting the caverns in Luray, VA' },
-        { src: SenecaBase, alt: 'About to start the climb at Seneca Rocks, WV', caption: 'About to climb at Seneca Rocks, WV' },
-        { src: snorkel, alt: 'Snorkeling in Maui', caption: 'Snorkeling in Maui' },
-        { src: surfingMaui, alt: 'Surfing in Maui', caption: 'Surfing in Maui' },
-        { src: surfingOBX, alt: 'Surfing in the Outer Banks, NC', caption: 'Surfing in the Outer Banks, NC', height: "200rem" }
-      ]
+      width: window.innerWidth,
+      currentIndex: 0,
+      modules: [SwiperNavigation, Pagination, A11y],
+      images,
     };
-  }
+  },
+  computed: {
+    isDesktop() {
+      return this.width >= 534;
+    }
+  },
+  methods: {
+    onSlideChange(swiper) {
+      this.updateCurrentIndex(swiper);
+    },
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+    updateCurrentIndex(swiper) {
+      this.currentIndex = swiper.activeIndex;
+    },
+    goToSlide(index) {
+      this.currentIndex = index;
+      if (this.isDesktop) {
+        console.log(this.$refs.carousel);
+        this.$refs.carousel.goTo(index);
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.updateWidth);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateWidth);
+  },
 };
 </script>
 
 <style>
+.carousel__pagination-button {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  /* This makes the buttons circular */
+  background-color: #090f20;
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.carousel__pagination-button:hover {
+  background-color: #000;
+}
+
+
+.carousel__pagination-button--active {
+  background-color: #f3f7fc;
+}
+
+.swiper-pagination-bullet {
+  background-color: #f3f7fc;
+}
+
 .about {
   min-height: 100vh;
 }
@@ -105,10 +201,17 @@ export default {
   margin: auto;
 }
 
+.carousel__next--disabled,
+.carousel__prev--disabled,
+.swiper-button-prev,
+.swiper-button-next {
+  visibility: hidden;
+}
+
 .carousel__prev,
 .carousel__next {
-  width: 50px;
-  height: 50px;
+  width: 4rem;
+  height: 4rem;
   background-color: rgba(0, 0, 0, 0.5);
   color: #f3f7fc;
   border: none;
@@ -132,36 +235,23 @@ export default {
   /* Example for border color */
 }
 
-.carousel__prev {
-  left: 3rem;
-
+.carousel__pagination-button--active::after {
+  background-color: #f3f7fc;
 }
 
-.carousel__next {
-  right: 3rem;
-
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
 }
 
-
-@media (max-width: 600px) {
-
-  .carousel__prev {
-    left: -30px;
-    width: 2rem;
-    height: 2rem;
-
-  }
-
-  .carousel__next {
-    right: -30px;
-    width: 2rem;
-    height: 2rem;
-
-  }
-}
-
-*/ .slide-content {
+.slide-content {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide-content img {
@@ -170,12 +260,17 @@ export default {
 }
 
 .slide-content p {
+  text-align: center;
   margin-top: 10px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 534px) {
   .topic-container {
     width: 100%;
+  }
+
+  .slide-content p {
+    margin-bottom: 2rem;
   }
 }
 

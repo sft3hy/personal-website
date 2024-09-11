@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-
 </script>
 
 <template>
@@ -19,7 +18,8 @@ import { RouterLink } from 'vue-router';
         page!</p>
       <br>
       <div class="home-photo">
-        <img :src="climbingImage" alt="Climbing" width="300rem" height="400rem">
+        <link rel="preload" as="image" href="/sam-townsend/images/home_picture/Climbing.jpeg" />
+        <img src="/sam-townsend/images/home_picture/Climbing.jpeg" alt="Climbing" width="300rem" height="400rem">
         <div class="caption-text" data-nosnippet>
           Pictured: me at the summit of Seneca Rocks in West Virginia<br>
           (Page seemed a little empty with just the text up top)
@@ -31,15 +31,7 @@ import { RouterLink } from 'vue-router';
 
 <script>
 
-import climbingImage from '@/assets/home_picture/Climbing.jpg';
 
-export default {
-  data() {
-    return {
-      climbingImage
-    };
-  }
-};
 </script>
 
 <style>
