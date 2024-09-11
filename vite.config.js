@@ -15,9 +15,9 @@ export default defineConfig(({ command }) => {
       Sitemap({
         hostname: 'https://sft3hy.github.io/',
         dynamicRoutes: [
-          '/sam-townsend/#',
-          '/sam-townsend/#/contact',
-          '/sam-townsend/#/about',
+          '/sam-townsend',
+          '/sam-townsend/contact',
+          '/sam-townsend/about',
         ],
       }),
     ],

@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 
 const metaOgTitleHome = 'Sam Townsend - Home';
@@ -12,9 +12,9 @@ const metaOgTitleContact = 'Sam Townsend - Contact';
 const metaDescriptionContact = "Get in touch with Sam Townsend - GitHub, Email address, LinkedIn, and Instagram.";
 const metaOgDescriptionContact = "Sam Townsend's contact information";
 
-const ogUrlHome = 'https://sft3hy.github.io/sam-townsend/#'
-const ogUrlAbout = 'https://sft3hy.github.io/sam-townsend/#/about'
-const ogUrlContact = 'https://sft3hy.github.io/sam-townsend/#/contact'
+const ogUrlHome = 'https://sft3hy.github.io/sam-townsend'
+const ogUrlAbout = 'https://sft3hy.github.io/sam-townsend/about'
+const ogUrlContact = 'https://sft3hy.github.io/sam-townsend/contact'
 
 const routes = [
   {
@@ -34,7 +34,7 @@ const routes = [
     path: '/about',
     name: 'About',
     // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
+    // this generates a separate chunk (About.[].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('../views/AboutView.vue'),
     meta: {
@@ -62,7 +62,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 
 });
