@@ -9,22 +9,7 @@ import Sitemap from 'vite-plugin-sitemap';
 export default defineConfig(({ command }) => {
 
   return {
-    build: {
-      rollupOptions: {
-        external: [
-          '/sam-townsend/images/home_picture/Climbing.jpeg',
-          '/sam-townsend/images/about_pictures/Climbing.jpeg',
-          'sam-townsend/images/about_pictures/backpackingCamino.jpeg',
-          'sam-townsend/images/about_pictures/ChicagoBean.jpeg',
-          'sam-townsend/images/about_pictures/Climbing1.jpeg',
-          'sam-townsend/images/about_pictures/friends.jpeg',
-          'sam-townsend/images/about_pictures/SenecaBase.jpeg',
-          'sam-townsend/images/about_pictures/snorkelMaui.jpeg',
-          'sam-townsend/images/about_pictures/surfingMaui.jpeg',
-          'sam-townsend/images/about_pictures/surfingOBX.jpeg'
-        ]
-      }
-    },
+    base: '/sam-townsend/',
     plugins: [
       vue(),
       Sitemap({
@@ -36,7 +21,6 @@ export default defineConfig(({ command }) => {
         ],
       }),
     ],
-    base: '/sam-townsend/',
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))

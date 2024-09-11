@@ -3,13 +3,26 @@ import { ref, computed, onMounted, onUnmounted } from 'vue';
 
 import 'vue3-carousel/dist/carousel.css';
 import 'swiper/swiper-bundle.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import { Carousel, Slide, Navigation as CarouselNavigation, Pagination as CarouselPagination } from 'vue3-carousel';
+import { Navigation as SwiperNavigation, Pagination as SwiperPagination, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+import backpackingCamino from '../assets/images/about_pictures/backpackingCamino.jpeg';
+import ChicagoBean from '../assets/images/about_pictures/ChicagoBean.jpeg';
+import Climbing1 from '../assets/images/about_pictures/Climbing1.jpeg';
+import friends from '../assets/images/about_pictures/friends.jpeg';
+import SenecaBase from '../assets/images/about_pictures/SenecaBase.jpeg';
+import snorkelMaui from '../assets/images/about_pictures/snorkelMaui.jpeg';
+import surfingMaui from '../assets/images/about_pictures/surfingMaui.jpeg';
+import surfingOBX from '../assets/images/about_pictures/surfingOBX.jpeg';
+
 </script>
 
 <template>
-  <link rel="preload" as="image" href="/sam-townsend/images/about_pictures/backpackingCamino.jpeg" />
-
   <div class="about">
     <div class="topic-container">
       <h1>Professional Stuff:</h1>
@@ -84,11 +97,7 @@ import { Carousel, Slide, Navigation as CarouselNavigation, Pagination as Carous
 </template>
 
 <script>
-import { Navigation as SwiperNavigation, Pagination, A11y } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+
 export default {
   components: {
     Carousel,
@@ -101,37 +110,38 @@ export default {
   data() {
     const images = ref([
       {
-        src: "/sam-townsend/images/about_pictures/backpackingCamino.jpeg", alt: 'Backpacking the Camino de Santiago in Spain',
+        src: backpackingCamino, alt: 'Backpacking the Camino de Santiago in Spain',
         caption: 'Backpacking Camino de Santiago in Spain'
       },
       {
-        src: "/sam-townsend/images/about_pictures/ChicagoBean.jpeg", alt: 'Me and a friend visiting the Chicago Bean',
+        src: ChicagoBean, alt: 'Me and a friend visiting the Chicago Bean',
         caption: 'Me and a friend visiting the Chicago Bean'
       },
       {
-        src: "/sam-townsend/images/about_pictures/Climbing1.jpeg", alt: 'Climbing the Manchester Wall in Richmond, VA',
+        src: Climbing1, alt: 'Climbing the Manchester Wall in Richmond, VA',
         caption: 'Climbing Manchester Wall in Richmond, VA'
       },
       {
-        src: "/sam-townsend/images/about_pictures/friends.jpeg", alt: 'Friends visiting the caverns in Luray, VA', caption:
+        src: friends, alt: 'Friends visiting the caverns in Luray, VA', caption:
           'Friends visiting the caverns in Luray, VA'
       },
       {
-        src: "/sam-townsend/images/about_pictures/SenecaBase.jpeg", alt: 'About to start the climb at Seneca Rocks, WV',
+        src: SenecaBase, alt: 'About to start the climb at Seneca Rocks, WV',
         caption: 'About to climb at Seneca Rocks, WV'
       },
       {
-        src: "/sam-townsend/images/about_pictures/snorkelMaui.jpeg", alt: 'Snorkeling in Maui', caption: 'Snorkeling in Maui'
+        src: snorkelMaui, alt: 'Snorkeling in Maui', caption: 'Snorkeling in Maui'
       },
-      { src: "/sam-townsend/images/about_pictures/surfingMaui.jpeg", alt: 'Surfing in Maui', caption: 'Surfing in Maui' },
-      { src: "/sam-townsend/images/about_pictures/surfingOBX.jpeg", alt: 'Surfing in the Outer Banks, NC', caption: 'Surfing in the Outer Banks, NC', height: "200rem" }
+      { src: surfingMaui, alt: 'Surfing in Maui', caption: 'Surfing in Maui' },
+      { src: surfingOBX, alt: 'Surfing in the Outer Banks, NC', caption: 'Surfing in the Outer Banks, NC', height: "200rem" }
     ]);
 
     return {
       width: window.innerWidth,
       currentIndex: 0,
-      modules: [SwiperNavigation, Pagination, A11y],
+      modules: [SwiperNavigation, SwiperPagination, A11y],
       images,
+
     };
   },
   computed: {
