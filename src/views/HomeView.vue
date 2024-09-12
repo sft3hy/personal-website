@@ -23,8 +23,9 @@ import Climbing from '../assets/images/home_picture/Climbing.jpeg';
       <div class="home-photo">
         <img :src=Climbing alt="Climbing" width="300rem" height="400rem">
         <div class="caption-text" data-nosnippet>
-          Pictured: me at the summit of Seneca Rocks in West Virginia<br>
-          (Page seemed a little empty with just the text up top)
+          Summit of <a href="https://en.wikipedia.org/wiki/Seneca_Rocks" target="_blank" rel="noopener">Seneca
+            Rocks</a>in West Virginia<br>
+          (It seemed a little empty on this page)
         </div>
       </div>
     </div>
@@ -48,6 +49,6 @@ import Climbing from '../assets/images/home_picture/Climbing.jpeg';
 }
 
 .caption-text {
-  font-size: 10px;
+  font-size: 1rem;
 }
 </style>
