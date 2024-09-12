@@ -4,10 +4,10 @@ import About from '../views/AboutView.vue';
 import Contact from '../views/ContactView.vue';
 
 const metaOgTitleHome = 'Sam Townsend - Home';
-const metaDescriptionHome = "Sam Townsend's home page";
+const metaDescriptionHome = "Sam is a software engineer working part time for Arcfield and getting his Master's in Data Science at UC Irvine. He graduated from UVA in 2022 and enjoys surfing, climbing, and playing video games with his friends.";
 
 const metaOgTitleAbout = 'Sam Townsend - About';
-const metaDescriptionAbout = "Sam is a software engineer working part time for Arcfield and getting his Master's in Data Science at UC Irvine. Pictures on this page include travelling and surfing.";
+const metaDescriptionAbout = "Sam Townsend's biographical information. Pictures on this page include travelling and surfing.";
 const metaOgDescriptionAbout = "Sam Townsend's biographical information";
 
 const metaOgTitleContact = 'Sam Townsend - Contact';
