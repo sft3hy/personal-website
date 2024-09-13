@@ -23,6 +23,7 @@ import surfingOBX from '../assets/images/about_pictures/surfingOBX.jpeg';
 </script>
 
 <template>
+  <link rel="preload" href="/sam-townsend/src/assets/images/about_pictures/backpackingCamino.jpeg" as="image">
   <div class="about">
     <div class="topic-container">
       <h1>Professional Stuff:</h1>

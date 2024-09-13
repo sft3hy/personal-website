@@ -12,7 +12,7 @@ const rewriteSlashToIndexHtml = () => {
     configureServer(server) {
       // rewrite / as index.html
       server.middlewares.use('/', (req, _, next) => {
-        if (req.url === '/') {
+        if (req.url === '/' || req.url === '/about' || req.url === '/contact') {
           req.url = '/index.html'
         }
         next()
@@ -25,7 +25,6 @@ const rewriteSlashToIndexHtml = () => {
 export default defineConfig(({ command }) => {
 
   return {
-    appType: 'mpa',
     base: '/sam-townsend/',
     plugins: [
       vue(),
