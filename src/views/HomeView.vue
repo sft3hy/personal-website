@@ -7,7 +7,7 @@ import Climbing from '../assets/images/home_picture/Climbing.jpeg';
 
 <template>
   <main>
-    <link rel="preload" href="/sam-townsend/src/assets/images/home_picture/Climbing.jpeg" as="image">
+    <link rel="preload" href="/src/assets/images/home_picture/Climbing.jpeg" as="image">
     <div data-nosnippet>
       <h1 style="display: none;">Sam Townsend</h1>
       <h1 class="howdy-header">Howdy!</h1>

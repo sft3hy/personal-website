@@ -14,9 +14,9 @@ const metaOgTitleContact = 'Sam Townsend - Contact';
 const metaDescriptionContact = "Get in touch with Sam Townsend - GitHub, Email address, LinkedIn, and Instagram.";
 const metaOgDescriptionContact = "Sam Townsend's contact information";
 
-const ogUrlHome = 'https://sft3hy.github.io/sam-townsend'
-const ogUrlAbout = 'https://sft3hy.github.io/sam-townsend/about'
-const ogUrlContact = 'https://sft3hy.github.io/sam-townsend/contact'
+const ogUrlHome = 'https://sam-townsend.netlify.app/'
+const ogUrlAbout = 'https://sam-townsend.netlify.app/about'
+const ogUrlContact = 'https://sam-townsend.netlify.app/contact'
 
 const routes = [
   {
@@ -61,7 +61,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/sam-townsend/'),
+  history: createWebHistory('/'),
   routes
 
 });
