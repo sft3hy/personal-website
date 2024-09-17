@@ -46,7 +46,7 @@ export default defineConfig(({ command }) => {
       vue(),
       rewriteSlashToIndexHtml(),
       Sitemap({
-        hostname: 'https://sft3hy.github.io/',
+        hostname: 'https://sam-townsend.netlify.app/',
         dynamicRoutes: [
           '/',
           '/contact',
