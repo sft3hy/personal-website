@@ -4,8 +4,9 @@ import Hamburger from './icons/Hamburger.vue'
 </script>
 <template>
   <div>
-    <button @click="toggleMenu" class="hamburger">
+    <button @click="toggleMenu" class="hamburger" aria-label="menu-dropdown" title="menu-dropdown">
       <Hamburger />
+      Menu
     </button>
     <transition name="fade">
 
