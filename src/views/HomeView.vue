@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { preloadImage } from '@/utils/common';
+import VLazyImage from 'v-lazy-image';
 
 import Climbing from '../assets/images/home_picture/Climbing.jpeg';
 
@@ -7,7 +9,7 @@ import Climbing from '../assets/images/home_picture/Climbing.jpeg';
 
 <template>
   <main>
-    <link rel="preload" href="/src/assets/images/home_picture/Climbing.jpeg" as="image">
+    <!-- <link rel="preload" href="/src/assets/images/home_picture/Climbing.jpeg" as="image"> -->
     <div data-nosnippet>
       <h1 style="display: none;">Sam Townsend</h1>
       <h1 class="howdy-header">Howdy!</h1>
@@ -22,7 +24,8 @@ import Climbing from '../assets/images/home_picture/Climbing.jpeg';
         page!</p>
       <br>
       <div class="home-photo">
-        <img :src=Climbing alt="Climbing" width="300rem" height="400rem">
+
+        <v-lazy-image :src=Climbing :alt="Climbing" width="300rem" height="400rem" />
         <div class="caption-text" data-nosnippet>
           Summit of <a href="https://en.wikipedia.org/wiki/Seneca_Rocks" target="_blank" rel="noopener">Seneca
             Rocks</a>in West Virginia<br>
@@ -32,6 +35,27 @@ import Climbing from '../assets/images/home_picture/Climbing.jpeg';
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  components: {
+    VLazyImage,
+  },
+  data() {
+    return {
+      isFirstLoad: true
+    }
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      if (vm.isFirstLoad) {
+        preloadImage('home_picture');
+        vm.isFirstLoad = false;
+      }
+    });
+  },
+}
+</script>
 
 
 

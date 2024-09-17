@@ -1,5 +1,8 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref } from 'vue';
+import { preloadImage } from '@/utils/common';
+import VLazyImage from 'v-lazy-image';
+
 
 import 'vue3-carousel/dist/carousel.css';
 import 'swiper/swiper-bundle.css';
@@ -23,7 +26,6 @@ import surfingOBX from '../assets/images/about_pictures/surfingOBX.jpeg';
 </script>
 
 <template>
-  <link rel="preload" href="/src/assets/images/about_pictures/backpackingCamino.jpeg" as="image">
   <div class="about">
     <div class="topic-container">
       <h1>Professional Stuff:</h1>
@@ -86,7 +88,7 @@ import surfingOBX from '../assets/images/about_pictures/surfingOBX.jpeg';
         :pagination="{ clickable: true }" @slideChange="onSlideChange">
         <swiper-slide v-for="(image, index) in images" :key="index">
           <div class="slide-content">
-            <img :src="image.src" :alt="image.alt" width="280rem">
+            <v-lazy-image :src="image.src" :alt="image.alt" width="280rem" />
             <p>{{ image.caption }}</p>
           </div>
         </swiper-slide>
@@ -98,7 +100,6 @@ import surfingOBX from '../assets/images/about_pictures/surfingOBX.jpeg';
 </template>
 
 <script>
-
 export default {
   components: {
     Carousel,
@@ -107,6 +108,7 @@ export default {
     CarouselPagination,
     Swiper,
     SwiperSlide,
+    VLazyImage,
   },
   data() {
     const images = ref([
@@ -142,8 +144,16 @@ export default {
       currentIndex: 0,
       modules: [SwiperNavigation, SwiperPagination, A11y],
       images,
-
+      isFirstLoad: true
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      if (vm.isFirstLoad) {
+        preloadImage('about_pictures');
+        vm.isFirstLoad = false;
+      }
+    });
   },
   computed: {
     isDesktop() {
@@ -159,13 +169,6 @@ export default {
     },
     updateCurrentIndex(swiper) {
       this.currentIndex = swiper.activeIndex;
-    },
-    goToSlide(index) {
-      this.currentIndex = index;
-      if (this.isDesktop) {
-        console.log(this.$refs.carousel);
-        this.$refs.carousel.goTo(index);
-      }
     },
   },
   mounted() {
